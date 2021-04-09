@@ -1,0 +1,10 @@
+$background-color: rgb(81, 221, 231);
+$primary-color: rgb(37, 48, 49);
+$secondary-color: rgb(94, 94, 94);
+$text-color: rgb(255,255,255);
+
+@mixin clear-link{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
