@@ -372,26 +372,49 @@ input:focus{
     z-index: 2 !important;
 
     nav{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
         align-items: center;
         margin-top: 20px;
         
         span{
-            padding: 10px 20px;
+            width: 400px;
+            height: auto;
+            padding: 10px 20px 10px 20px;
+            float:left;
+
+            .box-item{
+                float: left;
+                position: relative;
+                padding: 10px 20px;
+                left: 60px;
+                background-color: $secondary-color;
+                display: none;
+                
+                transform: translateY(-8px);
+                transition-duration: 0.7s;
+                transition-property: transform;
+                transition-timing-function: ease-in; 
+                display: inline-block;
+                transition: 0.5s;
+                opacity: 0;
+            }
+
+            &:hover{
+                path,rect,circle{
+                    fill: $primary-color;
+                }
+    
+                .box-item{
+                    opacity: 1;
+                }
+            }
         }
     }
     .sidebar-menu-icon{
-        
+        float: left;
+        margin-left: 10px;
         width: 40px;
         height: 40px;
 
-        &:hover{
-            path,rect,circle{
-                fill: $primary-color;
-            }
-        }
 
         &-selected{
             path{
