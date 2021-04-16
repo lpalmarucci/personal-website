@@ -373,6 +373,7 @@ input:focus{
         
         span{
             width: 250px;
+            min-width: 200px;
             height: auto;
             padding: 10px 20px 10px 20px;
             float:left;
@@ -380,17 +381,20 @@ input:focus{
             .box-item{
                 float: left;
                 position: relative;
-                padding: 10px 20px;
-                left: 60px;
+                margin-top: 5px;
+                padding: 7px 15px 5px 15px;
+                height: 30px;
+                top: 8px;
+                left: 40px;
                 background-color: $secondary-color;
-                // opacity: 0;
-                display: none;
-                
+                display: inline-block;
+                opacity: 0;
                 transform: translateY(-8px);
                 transition-duration: 0.7s;
                 transition-property: transform;
                 transition-timing-function: ease-in; 
                 transition: 0.5s;
+                
             }
 
             &:hover{
@@ -399,7 +403,7 @@ input:focus{
                 }
     
                 .box-item{
-                    display: inline-block;
+                    opacity: 1;
                 }
             }
         }
