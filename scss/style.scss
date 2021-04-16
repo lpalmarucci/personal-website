@@ -10,11 +10,7 @@ body{
     background-color: $background-color;
     font-family: Arial, Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
-    height: 100%;
     color: $text-color;
-
-	//background: linear-gradient(to left, #8942a8, #ba382f);
-	width: 100%;
 }
 
 h1{
@@ -40,7 +36,7 @@ input:focus{
     max-width: 1500px;
     max-height: 700px;
     min-height: 700px;
-    margin: 80px auto;
+    margin: 150px auto;
     border-radius: 30px 0 0 30px;
     z-index: 1;
     display: flex;
@@ -376,7 +372,7 @@ input:focus{
         margin-top: 20px;
         
         span{
-            width: 400px;
+            width: 250px;
             height: auto;
             padding: 10px 20px 10px 20px;
             float:left;
@@ -387,15 +383,14 @@ input:focus{
                 padding: 10px 20px;
                 left: 60px;
                 background-color: $secondary-color;
+                // opacity: 0;
                 display: none;
                 
                 transform: translateY(-8px);
                 transition-duration: 0.7s;
                 transition-property: transform;
                 transition-timing-function: ease-in; 
-                display: inline-block;
                 transition: 0.5s;
-                opacity: 0;
             }
 
             &:hover{
@@ -404,7 +399,7 @@ input:focus{
                 }
     
                 .box-item{
-                    opacity: 1;
+                    display: inline-block;
                 }
             }
         }
