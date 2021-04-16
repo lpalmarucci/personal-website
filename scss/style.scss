@@ -5,12 +5,24 @@
     padding: 0;
     box-sizing: border-box;
 }
+@font-face{
+    font-family: Prova;
+    src: url('Noto-regular.woff')
+}
 
 body{
     background-color: $background-color;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Custom;
     -webkit-font-smoothing: antialiased;
     color: $text-color;
+}
+
+
+
+//devo mettere a posto il font 
+
+p{
+    font-family: 'Prova';
 }
 
 h1{
@@ -33,13 +45,15 @@ input:focus{
     z-index: 1 !important;
     display: block;
     width: 90% !important;
-    max-width: 1500px;
+    max-width: 80vw;
     max-height: 700px;
     min-height: 700px;
-    margin: 150px auto;
     border-radius: 30px 0 0 30px;
     z-index: 1;
+    margin: 0 auto;
     display: flex;
+    position: relative;
+    top: 10vh;
 
     h1,h2,h3,h4,h5,h6,p{
         color: $text-color;
@@ -106,7 +120,7 @@ input:focus{
             overflow: auto;
 
             .label{
-                text-align: left;
+                text-align: justify;
                 font-weight: bold;
                 color: $background-color;
                 font-size: 20px;
@@ -360,7 +374,7 @@ input:focus{
 
 #menu{
     display: block;
-    height: 290px;
+    height: 340px;
     margin: 0 30px;
     width: 100px;
     border-radius: 50px;
@@ -370,12 +384,18 @@ input:focus{
     nav{
         align-items: center;
         margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        position: absolute;
         
         span{
+            position: relative;
             width: 250px;
             min-width: 200px;
             height: auto;
-            padding: 10px 20px 10px 20px;
+            padding: 10px 20px 10px 15px;
             float:left;
 
             .box-item{
@@ -384,7 +404,7 @@ input:focus{
                 margin-top: 5px;
                 padding: 7px 15px 5px 15px;
                 height: 30px;
-                top: 8px;
+                top: 0.5rem;
                 left: 40px;
                 background-color: $secondary-color;
                 display: inline-block;
@@ -516,6 +536,101 @@ input:focus{
 		transform: translateY(-1000px) rotate(360deg);
 		opacity: 0;
 	}
+}
+
+.timeline {
+    position: relative;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.timeline ul li {
+    margin-bottom: 50px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.point {
+    min-width: 20px;
+    height: 20px;
+    background-color: $secondary-color;
+    border-radius: 100%;
+    z-index: 2;
+    border: 3px #333333 solid;
+    position: relative;
+    left: 1px;
+}
+
+.timeline ul li .content {
+    width: 50%;
+    padding: 0 20px;
+}
+
+.timeline ul li:nth-child(odd) .content {
+    padding-left: 0;
+}
+
+.timeline ul li:nth-child(odd) .date {
+    padding-right: 0;
+}
+
+.timeline ul li:nth-child(even) .content {
+    padding-right: 0;
+}
+
+.timeline ul li:nth-child(even) .date {
+    padding-left: 0;
+}
+
+.timeline ul li .date {
+    width: 50%;
+    padding: 0 20px;
+    font-weight: normal;
+}
+
+.timeline ul li .date h4 {
+    background-color: $secondary-color;
+    width: 100px;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.timeline ul li .content h3 {
+    padding: 10px 20px;
+    background-color: darken($secondary-color,10);
+    margin-bottom: 0;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.timeline ul li .content p {
+    padding: 10px 20px;
+    background-color: $secondary-color;
+    margin-top: 0;
+    text-align: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.timeline ul li:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline ul li:nth-child(even) .date h4 {
+    float: right
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 3px;
+    left: 50%;
+    background-color: #333333;
 }
 
 
