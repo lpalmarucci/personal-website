@@ -4,6 +4,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    @include customScrollbar;
 }
 @font-face{
     font-family: Prova;
@@ -12,17 +14,14 @@
 
 body{
     background-color: $background-color;
-    font-family: Custom;
+    font-family: Arial, Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     color: $text-color;
 }
 
-
-
-//devo mettere a posto il font 
-
 p{
-    font-family: 'Prova';
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14pt;
 }
 
 h1{
@@ -46,7 +45,7 @@ input:focus{
     display: block;
     width: 90% !important;
     max-width: 80vw;
-    max-height: 700px;
+    max-height: 800px;
     min-height: 700px;
     border-radius: 30px 0 0 30px;
     z-index: 1;
@@ -95,7 +94,6 @@ input:focus{
         p{
             text-indent: 1em;
             text-align: left;
-            overflow: auto;
             
         }
 
@@ -154,26 +152,7 @@ input:focus{
             line-height: 30px;
             overflow: auto;
 
-            &::-webkit-scrollbar {
-                width: 10px;
-            }
-            
-            /* Track */
-            &::-webkit-scrollbar-track {
-                background: lighten($primary-color,20);
-                border-radius: 5px;
-            }
-            
-            /* Handle */
-            &::-webkit-scrollbar-thumb {
-                background: white;
-                border-radius: 5px;
-            }
-            
-            /* Handle on hover */
-            &::-webkit-scrollbar-thumb:hover {
-                background: lighten($primary-color, 60);
-            }
+            @include customScrollbar;
             
         }
 
@@ -538,90 +517,136 @@ input:focus{
 	}
 }
 
+#wrapper-timeline{
+    @include customScrollbar;
+    overflow: auto;
+}
+.wrapper-timeline{
+    &::-webkit-scrollbar-track{
+        background: lighten($primary-color,20)  !important;
+        border-radius: 5px !important;
+    }
+    
+    /* Handle */
+    &::-webkit-scrollbar-thumb{
+        background: white !important;
+        border-radius: 5px !important;
+    }
+    
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover{
+        background: lighten($primary-color, 60);
+    }
+}
+
 .timeline {
     position: relative;
     margin: 0 auto;
     width: 90%;
-}
+    overflow: auto;
+    padding-right: 20px;
+    &::-webkit-scrollbar-track{
+        background: lighten($primary-color,20)  !important;
+        border-radius: 5px !important;
+    }
+    
+    /* Handle */
+    &::-webkit-scrollbar-thumb{
+        background: white !important;
+        border-radius: 5px !important;
+    }
+    
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover{
+        background: lighten($primary-color, 60);
+    }
 
-.timeline ul li {
-    margin-bottom: 50px;
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
+    ul{
+        li{
+            margin-bottom: 50px;
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
 
-.point {
-    min-width: 20px;
-    height: 20px;
-    background-color: $secondary-color;
-    border-radius: 100%;
-    z-index: 2;
-    border: 3px #333333 solid;
-    position: relative;
-    left: 1px;
-}
 
-.timeline ul li .content {
-    width: 50%;
-    padding: 0 20px;
-}
+            .point {
+                min-width: 20px;
+                height: 20px;
+                background-color: $secondary-color;
+                border-radius: 100%;
+                z-index: 2;
+                border: 3px #333333 solid;
+                position: relative;
+                left: 1px;
+            }
 
-.timeline ul li:nth-child(odd) .content {
-    padding-left: 0;
-}
+            .content {
+                width: 50%;
+                padding: 0 20px;
 
-.timeline ul li:nth-child(odd) .date {
-    padding-right: 0;
-}
+                h3 {
+                    padding: 10px 20px;
+                    background-color: darken($secondary-color,10);
+                    margin-bottom: 0;
+                    text-align: center;
+                    border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;
+                }
 
-.timeline ul li:nth-child(even) .content {
-    padding-right: 0;
-}
+                p {
+                    padding: 10px 20px;
+                    background-color: $secondary-color;
+                    margin-top: 0;
+                    text-align: center;
+                    border-bottom-left-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                }
+            }
 
-.timeline ul li:nth-child(even) .date {
-    padding-left: 0;
-}
+            .date {
+                width: 50%;
+                padding: 0 20px;
+                font-weight: normal;
 
-.timeline ul li .date {
-    width: 50%;
-    padding: 0 20px;
-    font-weight: normal;
-}
+                h4 {
+                    background-color: $secondary-color;
+                    width: 150px;
+                    text-align: center;
+                    padding: 5px 10px;
+                    border-radius: 10px;
+                }
+                
+            }
+        }
 
-.timeline ul li .date h4 {
-    background-color: $secondary-color;
-    width: 100px;
-    text-align: center;
-    padding: 5px 10px;
-    border-radius: 10px;
-}
+        li:nth-child(even) {
+            flex-direction: row-reverse;
 
-.timeline ul li .content h3 {
-    padding: 10px 20px;
-    background-color: darken($secondary-color,10);
-    margin-bottom: 0;
-    text-align: center;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
+            .date h4 {
+                float: right
+            }
+        }
 
-.timeline ul li .content p {
-    padding: 10px 20px;
-    background-color: $secondary-color;
-    margin-top: 0;
-    text-align: center;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
+        li:nth-child(even) .content {
+            padding-right: 0;
+        }
 
-.timeline ul li:nth-child(even) {
-    flex-direction: row-reverse;
-}
+        li:nth-child(odd) .content {
+            padding-left: 0;
+        }
 
-.timeline ul li:nth-child(even) .date h4 {
-    float: right
+        li:nth-child(even) .date {
+            padding-left: 0;
+        }
+
+        li:nth-child(odd) .date {
+            padding-right: 0;
+        }
+    }
+
+
+    @include customScrollbar;
 }
 
 .timeline::before {
@@ -632,6 +657,5 @@ input:focus{
     left: 50%;
     background-color: #333333;
 }
-
 
 @import "tablet";
