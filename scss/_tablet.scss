@@ -2,11 +2,12 @@
     body{
         flex-direction: column;
         max-width: 1100px !important;
+        width: 100% !important;
     }
 
 
     #container{
-        width: 100%;
+        width: 100% !important;
         height: 80%;
         max-width: 100%;
         min-width: 100%;
@@ -61,6 +62,7 @@
 
     #menu{
         margin: 0;
+        float:none;
         display: flex;
         flex-direction: row;
         height: auto;
@@ -71,19 +73,23 @@
         align-items: center;
 
         nav{
-            width: 80%;
             display: flex;
             flex-direction: row;
-            justify-content: space-around;
+            justify-content: space-between !important;
+            align-items: center;
             margin-top: 10px;
             position: relative;
+            float: none;
+            width: 80%;
 
             span{
                 padding-top: 0;
-                min-width: 40px;
+                min-width: 20px; 
+                float: none;
             }
 
             .box-item{
+                float:none;
                 display: none !important;
                 opacity: 0;
                 transform: none;
@@ -125,6 +131,23 @@
     .point {
         min-width: 12px;
         height: 12px;
+    }
+
+    .wrapper-footer-section{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        margin-top: 50px;
+
+        .wrapper-knowledge-list,
+        .wrapper-project-list{
+            width: 80%;
+
+            h1{
+                text-align: center;
+            }
+        }
     }
 
 }

@@ -33,7 +33,7 @@ h2{
 }
 
 .normalize{
-    @include clear-link;
+    @include clear-link(black);
 }
 
 input:focus{
@@ -324,7 +324,7 @@ input:focus{
             }
         }
         a{
-            @include clear-link;
+            @include clear-link(black);
             margin: 15px;
             width: 15%;
             height: 20%;
@@ -545,21 +545,8 @@ input:focus{
     width: 90%;
     overflow: auto;
     padding-right: 20px;
-    &::-webkit-scrollbar-track{
-        background: lighten($primary-color,20)  !important;
-        border-radius: 5px !important;
-    }
-    
-    /* Handle */
-    &::-webkit-scrollbar-thumb{
-        background: white !important;
-        border-radius: 5px !important;
-    }
-    
-    /* Handle on hover */
-    &::-webkit-scrollbar-thumb:hover{
-        background: lighten($primary-color, 60);
-    }
+   
+    @include customScrollbar;
 
     ul{
         li{
@@ -576,7 +563,7 @@ input:focus{
                 background-color: $secondary-color;
                 border-radius: 100%;
                 z-index: 2;
-                border: 3px #333333 solid;
+                border: 3px grey solid;
                 position: relative;
                 left: 1px;
             }
@@ -644,9 +631,6 @@ input:focus{
             padding-right: 0;
         }
     }
-
-
-    @include customScrollbar;
 }
 
 .timeline::before {
@@ -655,7 +639,43 @@ input:focus{
     height: 100%;
     width: 3px;
     left: 50%;
-    background-color: #333333;
+    margin-left: 2px;
+    background-color: darken(white, 20);
+}
+
+
+.wrapper-footer-section{
+
+    display: flex;
+    justify-content: space-around;
+    align-content:  center;
+    
+    .wrapper-knowledge-list,
+    .wrapper-project-list{
+        padding: 20px;
+        text-align: left;
+    
+        ul{
+            margin-left: 45px;
+            font-size: 14pt;
+            li{
+                text-align: left;
+                padding: 10px;
+            }
+    
+            li:first-of-type{
+                margin-top: 5px;
+            }
+
+            li.last{
+                list-style: none;
+            }
+        }
+
+        a{
+            @include clear-link(white);
+        }
+    }
 }
 
 @import "tablet";

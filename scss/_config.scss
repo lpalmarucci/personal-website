@@ -3,10 +3,14 @@ $primary-color: rgb(37, 48, 49);
 $secondary-color: rgb(94, 94, 94);
 $text-color: rgb(255,255,255);
 
-@mixin clear-link{
+@mixin clear-link($text-color){
     text-decoration: none;
-    color: black;
+    color: $text-color;
     cursor: pointer;
+
+    &:hover{
+        color: darken($text-color, 30);
+    }
 }
 
 @mixin customScrollbar{
